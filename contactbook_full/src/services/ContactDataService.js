@@ -1,0 +1,36 @@
+import http from "../3-4 Frontend/contactbook_frontend_v2/src/http-common";
+
+class ContactDataService {
+    getAll() {
+        return http.get("/contacts");
+    }
+
+    get(id) {
+        return http.get(`/contacts/${id}`);
+    }
+
+    create(data) {
+        return http.post("/contacts", data);
+    }
+
+
+
+    update(id, data) {
+
+        return http.put(`/contacts/${id}`, data);
+    }
+
+    delete(id) {
+        return http.delete(`/contacts/${id}`);
+    }
+
+    deleteAll() {
+        return http.delete(`/contacts`);
+    }
+
+    findByTitle(title) {
+        return http.get(`/contacts?title=${title}`);
+    }
+}
+
+export default new ContactDataService();
